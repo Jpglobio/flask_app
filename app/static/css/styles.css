@@ -1,0 +1,56 @@
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Main content styles */
+main {
+  flex: 1 0 auto;
+}
+
+.content {
+  padding: 20px 0;
+}
+
+/* Footer styles */
+footer {
+  flex-shrink: 0;
+}
+
+/* Additional styles to enhance the layout */
+.navbar {
+  padding: 10px 0;
+}
+
+.navbar-brand svg {
+  margin-right: 10px;
+}
+
+.btn-outline-light:hover {
+  color: #000;
+  background-color: #f8f9fa;
+}
+
+.btn-warning:hover {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+footer .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}/*# sourceMappingURL=styles.css.map */
