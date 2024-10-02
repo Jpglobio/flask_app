@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Shoe Purchase Prediction{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="instructions mb-4">
+        <h2>Model Instructions</h2>
+        <p class="lead">The model is designed to predict whether a customer will buy shoes based on several factors such
+            as age, gender, income, and shoe size. It utilizes a Random Forest Classifier from the scikit-learn library
+            to perform the predictions.</p>
+        <p>These are the following factors whether a person will buy shoes:</p>
+        <ul>
+            <li>Age: 18-70 years old</li>
+            <li>Gender: 0 for Male, 1 for Female</li>
+            <li>Income: 20,000 - 100,000 per year</li>
+            <li>Shoe Size: Typically around size 5 and above</li>
+        </ul>
+        <p>The model is more likely to predict a purchase if:</p>
+        <ul>
+            <li>The person is young (under 30) with an income over 40,000</li>
+            <li>The person has a high income (over 70,000)</li>
+            <li>The person is older (over 50) with an income over 60,000</li>
+        </ul>
+    </div>
+    <hr class="px-4 mx-4">
+    <h3>Shoe Purchase Prediction</h3>
+    <form action="{{ url_for('main.predict') }}" method="POST" target="prediction_result">
+        <div class="mb-3">
+            <label for="age" class="form-label">Age:</label>
+            <input type="number" class="form-control" id="age" name="age" min="18" max="70" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender:</label>
+            <select id="gender" name="gender" class="form-select" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="income" class="form-label">Income:</label>
+            <input type="number" class="form-control" id="income" name="income" min="20000" max="100000" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="shoe_size" class="form-label">Shoe Size:</label>
+            <input type="number" class="form-control" id="shoe_size" name="shoe_size" step="0.1" min="5" max="15"
+                required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+</div>
+{% endblock %}
